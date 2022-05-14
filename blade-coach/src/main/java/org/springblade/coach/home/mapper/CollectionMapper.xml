@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.coach.home.mapper.CollectionMapper">
+
+    <resultMap id="BaseResultMap" type="org.springblade.coach.home.entity.HumanPlusPUserCollection">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <!--注意这里为property-->
+        <result property="userId" column="user_id" jdbcType="BIGINT"/>
+        <result property="courceId" column="cource_id" jdbcType="BIGINT"/>
+        <result property="usStatus" column="us_status" jdbcType="VARCHAR"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+        <result property="createdBy" column="created_by" jdbcType="BIGINT"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedBy" column="updated_by" jdbcType="BIGINT"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--    <sql id="Base_Column_List">-->
+    <!--        ID,COURCE_NAME,COURCE_CODE,-->
+    <!--        COURCE_TYPE,VIDEO_URL,COURCE_STATUS,-->
+    <!--        COURCE_DESC,CREATE_USER_ID,CREATED_BY,-->
+    <!--        CREATED_TIME,UPDATED_BY,UPDATED_TIME-->
+    <!--    </sql>-->
+</mapper>

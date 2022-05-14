@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.coach.home.mapper.HumanPlusPCourceTaskMapper">
+
+    <resultMap id="BaseResultMap" type="org.springblade.coach.home.entity.HumanPlusPCourceTask">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <!--注意这里为property-->
+        <result property="courceId" column="cource_id" jdbcType="BIGINT"/>
+        <result property="taskId" column="task_id" jdbcType="BIGINT"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+        <result property="createdBy" column="created_by" jdbcType="BIGINT"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedBy" column="updated_by" jdbcType="BIGINT"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <insert id="insertMultiTask" useGeneratedKeys="true" keyProperty="id" parameterType="org.springblade.coach.home.entity.HumanPlusPCourceTask">
+        insert into human_plus_p_cource_task(cource_id, task_id, created_by, created_time)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.courceId,jdbcType=BIGINT}, #{item.taskId,jdbcType=BIGINT}, #{item.createdBy,jdbcType=BIGINT},
+            #{item.createdTime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
+
+    <!--    <sql id="Base_Column_List">-->
+    <!--        ID,COURCE_NAME,COURCE_CODE,-->
+    <!--        COURCE_TYPE,VIDEO_URL,COURCE_STATUS,-->
+    <!--        COURCE_DESC,CREATE_USER_ID,CREATED_BY,-->
+    <!--        CREATED_TIME,UPDATED_BY,UPDATED_TIME-->
+    <!--    </sql>-->
+</mapper>

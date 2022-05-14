@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.coach.home.mapper.TaskMapper">
+
+    <resultMap id="BaseResultMap" type="org.springblade.coach.home.entity.HumanPlusPTask">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <!--注意这里为property-->
+        <result property="taskCode" column="task_code" jdbcType="VARCHAR"/>
+        <result property="taskName" column="task_name" jdbcType="VARCHAR"/>
+        <result property="taskLimit" column="task_limit" jdbcType="VARCHAR"/>
+        <result property="taskData" column="task_data" jdbcType="VARCHAR"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+        <result property="createdBy" column="created_by" jdbcType="BIGINT"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedBy" column="updated_by" jdbcType="BIGINT"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--    <sql id="Base_Column_List">-->
+    <!--        ID,COURCE_NAME,COURCE_CODE,-->
+    <!--        COURCE_TYPE,VIDEO_URL,COURCE_STATUS,-->
+    <!--        COURCE_DESC,CREATE_USER_ID,CREATED_BY,-->
+    <!--        CREATED_TIME,UPDATED_BY,UPDATED_TIME-->
+    <!--    </sql>-->
+    <!-- 可以选择全部的task的信息，排除逻辑删除，主要用于用户历史任务信息的查询，但不可以查询到具体的任务信息-->
+    <select id="gettaskwithoutlogic" resultMap="BaseResultMap">
+        select * from human_plus_p_task where id= #{taskid}
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.coach.home.mapper.HumanPlusCourceMapper">
+
+    <resultMap id="BaseResultMap" type="org.springblade.coach.home.entity.HumanPlusPCource">
+        <result property="id" column="ID" jdbcType="BIGINT"/>
+        <result property="courceName" column="cource_name" jdbcType="VARCHAR"/>
+        <result property="courceCode" column="cource_code" jdbcType="VARCHAR"/>
+        <result property="courceType" column="cource_type" jdbcType="VARCHAR"/>
+        <result property="videoUrl" column="video_url" jdbcType="VARCHAR"/>
+        <result property="pictureUrl" column="picture_url" jdbcType="VARCHAR"/>
+        <result property="courceStatus" column="cource_status" jdbcType="VARCHAR"/>
+        <result property="courceDesc" column="cource_desc" jdbcType="VARCHAR"/>
+        <result property="createTrainerId" column="create_trainer_id" jdbcType="BIGINT"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+        <result property="createdBy" column="created_by" jdbcType="BIGINT"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updatedBy" column="updated_by" jdbcType="BIGINT"/>
+        <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="getcourcewithoutlogic" resultMap="BaseResultMap">
+        select * from human_plus_p_cource where id=#{courceid}
+    </select>
+</mapper>
